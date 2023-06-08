@@ -1,0 +1,14 @@
+Stage 1 
+Run P net
+Scales the image so that minimum size that we can detect equals to minimum face size that we want to detect (để tránh tốn tài nguyên, giảm thời gian xử lý)
+Step 1: run first stage, get bounding box that probably contain face
+Step 2: nms delete some bounding that overlap with other box is too big
+Step 3: calibrate_box Transform bounding boxes to be more like true bounding boxes
+Step 4: convert_to_square Convert bounding boxes to a square form
+Stage 2
+Run R net
+Step 1: get_image_boxes Cut out boxes from the image
+Step 2: Run R Net : Remove unnecessary bounding box thực hiện hiệu chuẩn với véc-tơ hồi quy và thực hiện hợp nhất các cửa sổ xếp chồng nhau tại một vùng
+Step 3: calibrate_box convert_to_square tương tự nưa Stage 1
+Stage 3
+đánh dấu vị trí năm điểm chính trên khuôn mặt
